@@ -6045,17 +6045,19 @@
           naughty = wob[naught];
           
           if (mark && naughty) {
+            return false;
+          } else {
+            return true;
+          } 
+          });
+
+        if (mark && naughty) {
             console.log('Show the popover.');
             $('#msg').popover('show');
-            return false;
-         } else {
-            return true;
-            } else {
-              console.log('Hide the popover.');
-              $('#msg').popover('hide');
-            }
-        });
-
+        } else {
+            console.log('Hide the popover.');
+            $('#msg').popover('hide');
+        }
   };
 
   viva.timer;
