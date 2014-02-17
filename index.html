@@ -35,7 +35,8 @@
 
     <script type="text/javascript">
       $(document).ready(function readySetGo() {
-          var names = [
+          var viva = viva || {};
+          viva.names = [
   'MARY',
   'PATRICIA',
   'LINDA',
@@ -5532,7 +5533,7 @@
   'ALONSO'
           ];
 
-      var badwords = [
+  viva.badwords = [
   'ahole',
   'anus',
   'ash0le',
@@ -6005,9 +6006,8 @@
           }
         });
 
-  var after = function () { //32
-        console.log(this);
-        var val = $(this).val(),
+  viva.after = function () {
+        var val = $('#msg').val(),
             i,
             splat,
             j,
@@ -6021,8 +6021,8 @@
           return o;
         };
 
-        var nob = names.uniqueAsObj(),
-            wob = badwords.uniqueAsObj();
+        var nob = this.names.uniqueAsObj(),
+            wob = this.badwords.uniqueAsObj();
 
         console.log(val);
         splat = val.split(' ');
@@ -6039,9 +6039,12 @@
           });
 
         jQuery.each(splat, function (index, item) {
-          console.log('get '+item+ ' from nob and wob');
-          mark = nob[item.toUpperCase().replace(/\W+/g, '')];
-          naughty = wob[item.toLowerCase().replace(/\W+/g, '')];
+            console.log('get '+item+ ' from nob and wob');
+            var marky = item.toUpperCase().replace(/\W+/g, '');
+            var naught = item.toLowerCase().replace(/\W+/g, '');
+
+          mark = nob[marky];
+          naughty = wob[naught];
           
           if (mark && naughty) {
             console.log('Show the popover.');
