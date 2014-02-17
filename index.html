@@ -6034,8 +6034,8 @@
 
         jQuery.each(splat, function (index, item) {
           console.log('get '+item+ ' from nob and wob');
-          mark = nob[item.toUpperCase()];
-          naughty = wob[item.toLowerCase()];
+          mark = nob[item.toUpperCase().replace(/\W+/g, '')];
+          naughty = wob[item.toLowerCase().replace(/\W+/g, '')];
           
           if (mark && naughty) {
             console.log('Show the popover.');
