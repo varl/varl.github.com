@@ -6027,15 +6027,16 @@
             placement:'bottom',
             title:'Is this nice?',
             content:'Are you sure the message you just wrote,\
-            , which looks like it is directed at someone,\
+            which looks like it is directed at someone,\
             are you sure this is a nice thing to say?',
-            container: 'body'
+            container: 'body',
+            trigger: manual
           });
 
         jQuery.each(splat, function (index, item) {
           console.log('get '+item+ ' from nob and wob');
-          mark = nob[item];
-          naughty = wob[item];
+          mark = nob[item.toUpperCase()];
+          naughty = wob[item.toLowerCase()];
           
           if (mark && naughty) {
             console.log('Show the popover.');
