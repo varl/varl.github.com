@@ -5998,40 +5998,40 @@
       });
 
   $('#msg').keypress(function (e) {
-      e.preventDefault();
       if (e.which === 13) { //32
-      console.log(this);
-      var val = $(this).val(),
-          i,
-          splat,
-          j,
-          mark,
-          naughty;
+        e.preventDefault();
+        console.log(this);
+        var val = $(this).val(),
+            i,
+            splat,
+            j,
+            mark,
+            naughty;
 
-      console.log(val);
-      splat = val.split(' ');
-      
-      for (i = 0; i < splat.length; ++i) {
-        console.log('looping words written in box...');
-        for (j = 0; j < names.length; ++j) {
-          console.log('looping names...');
-          if (names[j] === splat[i]) {
-            console.log('Hit! We have a mark...');
-            mark = true;
-            break;
+        console.log(val);
+        splat = val.split(' ');
+        
+        for (i = 0; i < splat.length; ++i) {
+          console.log('looping words written in box...');
+          for (j = 0; j < names.length; ++j) {
+            console.log('looping names...');
+            if (names[j] === splat[i]) {
+              console.log('Hit! We have a mark...');
+              mark = true;
+              break;
+            }
           }
-        }
 
-        for (j = 0; j < badwords.length; ++j) {
-          console.log('looping words...');
-          if (badwords[j] === splat[i]) {
-            console.log('Hit! We have a bad word...');
-            naughty = true;
-            break;
+          for (j = 0; j < badwords.length; ++j) {
+            console.log('looping words...');
+            if (badwords[j] === splat[i]) {
+              console.log('Hit! We have a bad word...');
+              naughty = true;
+              break;
+            }
           }
         }
       }
-    }
   });
 });
     </script>
