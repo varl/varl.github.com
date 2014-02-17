@@ -6006,6 +6006,12 @@
           }
         });
 
+  Array.prototype.uniqueAsObj = function() {
+    var o = {}, i, l = this.length, r = [];
+    for(i=0; i<l;i+=1) o[this[i]] = true;
+    return o;
+  };
+
   viva.after = function () {
         var val = $('#msg').val(),
             i,
@@ -6014,19 +6020,11 @@
             mark = false,
             naughty = false;
 
-
-        Array.prototype.uniqueAsObj = function() {
-          var o = {}, i, l = this.length, r = [];
-          for(i=0; i<l;i+=1) o[this[i]] = true;
-          return o;
-        };
-
         var nob = this.names.uniqueAsObj(),
             wob = this.badwords.uniqueAsObj();
 
         console.log(val);
         splat = val.split(' ');
-
 
         $('#msg').popover({
             placement:'bottom',
@@ -6061,7 +6059,7 @@
 
   var timer;
   $('#msg').keyup(function () {
-      timer = setTimeout(after, 1000);
+      timer = setTimeout(viva.after, 1000);
       });
   $('#msg').keydown(function () {
       clearTimeout(timer);
