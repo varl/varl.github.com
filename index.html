@@ -24,7 +24,7 @@
     <form role="form">
       <div class="form-group">
         <label for="msg">Status update</label>
-        <textarea id="msg" class="form-control" rows="3"></textarea>
+        <input type="text" id="msg" class="form-control"/>
       </div>
       <button type="submit" id="btn" class="btn btn-default">Post</button>
     </form>          
@@ -5996,7 +5996,7 @@
   $('#msg').keypress(function (e) {
       if (e.which === 13) { //32
       console.log(this);
-      var val = $(this).value(),
+      var val = $(this).val(),
           i,
           splat,
           j,
