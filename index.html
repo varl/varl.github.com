@@ -5997,9 +5997,14 @@
         event.preventDefault();
       });
 
-  $('#msg').keypress(function (e) {
-      if (e.which === 13) { //32
-        e.preventDefault();
+
+  $('#msg')
+      .keypress(function (e) {
+          if (e.which === 13) {
+            e.preventDefault();
+            });
+
+  var after = function () { //32
         console.log(this);
         var val = $(this).val(),
             i,
@@ -6048,8 +6053,15 @@
           }
         });
 
-      }
-  });
+  };
+
+  var timer;
+  $('#msg').keyup(function () {
+      timer = setTimeout(after, 1000);
+      });
+  $('#msg').keydown(function () {
+      clearTimeout(timer);
+      });
 });
     </script>
   </body>
