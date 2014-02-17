@@ -6039,7 +6039,9 @@
           if (mark && naughty) {
             $('#msg').popover('show');
             return false;
-          }
+            } else {
+            $('#msg').popover('hide');
+            }
           });
 
         /*for (i = 0; i < splat.length; ++i) {
