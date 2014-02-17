@@ -6006,6 +6006,16 @@
           }
         });
 
+    $('#msg').popover({
+        placement:'bottom',
+        title:'Is this nice?',
+        content:'Are you sure the message you just wrote,\
+        which looks like it is directed at someone,\
+        are you sure this is a nice thing to say?',
+        container: 'body',
+        trigger: 'manual'
+      });
+
   viva.after = function () {
         var val = $('#msg').val(),
             i,
@@ -6025,16 +6035,6 @@
 
         console.log(val);
         splat = val.split(' ');
-
-        $('#msg').popover({
-            placement:'bottom',
-            title:'Is this nice?',
-            content:'Are you sure the message you just wrote,\
-            which looks like it is directed at someone,\
-            are you sure this is a nice thing to say?',
-            container: 'body',
-            trigger: 'manual'
-          });
 
         jQuery.each(splat, function (index, item) {
             console.log('get '+item+ ' from nob and wob');
@@ -6062,6 +6062,7 @@
       timer = setTimeout(viva.after, 1000);
       });
   $('#msg').keydown(function () {
+      $('#msg').popover('hide');
       clearTimeout(timer);
       });
 });
