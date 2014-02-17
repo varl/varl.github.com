@@ -6009,15 +6009,15 @@
             naughty;
 
 
-        Array.prototype.unique = function() {
+        Array.prototype.uniqueAsObj = function() {
           var o = {}, i, l = this.length, r = [];
           for(i=0; i<l;i+=1) o[this[i]] = true;
-          for(i in o) r.push(o[i]);
-          return r;
+          //for(i in o) r.push(o[i]);
+          return o;
         };
 
-        var nob = names.unique(),
-            wob = badwords.unique();
+        var nob = names.uniqueAsObj(),
+            wob = badwords.uniqueAsObj();
 
         console.log(val);
         splat = val.split(' ');
@@ -6032,38 +6032,18 @@
             container: 'body'
           });
 
-        $(splat).each(function (item) {
-          mark = nob[splat[item]];
-          naughty = wob[splat[item]];
+        jQuery.each(splat, function (index, item) {
+          mark = nob[item];
+          naughty = wob[item];
           
           if (mark && naughty) {
             $('#msg').popover('show');
             return false;
-            } else {
+          } else {
             $('#msg').popover('hide');
-            }
-          });
-
-        /*for (i = 0; i < splat.length; ++i) {
-          console.log('looping words written in box...');
-          for (j = 0; j < names.length; ++j) {
-            console.log('looping names...');
-            if (names[j] === splat[i]) {
-              console.log('Hit! We have a mark...');
-              mark = true;
-              break;
-            }
           }
+        });
 
-          for (j = 0; j < badwords.length; ++j) {
-            console.log('looping words...');
-            if (badwords[j] === splat[i]) {
-              console.log('Hit! We have a bad word...');
-              naughty = true;
-              break;
-            }
-          }
-        }*/
       }
   });
 });
