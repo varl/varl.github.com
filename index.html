@@ -6017,6 +6017,8 @@
       });
 
   viva.after = function () {
+      console.log('Hide the popover.');
+      $('#msg').popover('hide');
         var val = $('#msg').val(),
             i,
             splat,
@@ -6057,8 +6059,6 @@
 
   var timer;
   $('#msg').keyup(function () {
-      console.log('Hide the popover.');
-      $('#msg').popover('hide');
       timer = setTimeout(viva.after, 1000);
       });
   $('#msg').keydown(function () {
