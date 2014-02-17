@@ -6022,18 +6022,22 @@
         console.log(val);
         splat = val.split(' ');
 
+
+        $('#msg').popover({
+            placement:'bottom',
+            title:'Is this nice?',
+            content:'Are you sure the message you just wrote,\
+            , which looks like it is directed at someone,\
+            are you sure this is a nice thing to say?',
+            container: 'body'
+          });
+
         $(splat).each(function (item) {
           mark = nob[item];
           naughty = wob[item];
           
           if (mark && naughty) {
-            $('#msg').popover({
-                placement:'bottom',
-                title:'Is this nice?',
-                content:'Are you sure the message you just wrote,
-                , which looks like it is directed at someone,
-                are you sure this is a nice thing to say?'
-              });
+            $('#msg').popover('show');
             return false;
           }
           });
