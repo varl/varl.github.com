@@ -6033,14 +6033,18 @@
           });
 
         jQuery.each(splat, function (index, item) {
+          console.log('get '+item+ ' from nob and wob');
           mark = nob[item];
           naughty = wob[item];
           
           if (mark && naughty) {
+            console.log('Show the popover.');
             $('#msg').popover('show');
             return false;
-          } else {
+            } else {
+            console.log('Hide the popover.');
             $('#msg').popover('hide');
+            return true;
           }
         });
 
