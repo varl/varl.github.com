@@ -5993,7 +5993,12 @@
   'zabourah',
   ];
 
+  $('#btn').click(function(event) {
+        event.preventDefault();
+      });
+
   $('#msg').keypress(function (e) {
+      e.preventDefault();
       if (e.which === 13) { //32
       console.log(this);
       var val = $(this).val(),
