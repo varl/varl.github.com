@@ -6041,8 +6041,12 @@
             var marky = item.toUpperCase().replace(/\W+/g, '');
             var naught = item.toLowerCase().replace(/\W+/g, '');
 
-          mark = nob[marky];
-          naughty = wob[naught];
+            if (typeof nob[marky] !== "undefined") {
+              mark = nob[marky];
+            }
+            if (typeof wob[naught] !== "undefined") {
+              naughty = wob[naught];
+            }
           
           if (mark && naughty) {
             return false;
