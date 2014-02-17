@@ -35,7 +35,7 @@
 
     <script type="text/javascript">
       $(document).ready(function readySetGo() {
-        var names = [
+          var names = [
   'MARY',
   'PATRICIA',
   'LINDA',
@@ -5530,9 +5530,9 @@
   'DARELL',
   'BRODERICK',
   'ALONSO'
-        ];
+          ];
 
-  var badwords = [
+      var badwords = [
   'ahole',
   'anus',
   'ash0le',
@@ -5991,7 +5991,7 @@
   'wop*',
   'yed',
   'zabourah',
-  ];
+          ];
 
   $('#btn').click(function(event) {
         event.preventDefault();
@@ -6008,10 +6008,37 @@
             mark,
             naughty;
 
+
+        Array.prototype.unique = function() {
+          var o = {}, i, l = this.length, r = [];
+          for(i=0; i<l;i+=1) o[this[i]] = true;
+          for(i in o) r.push(o[i]);
+          return r;
+        };
+
+        var nob = names.unique(),
+            wob = words.unique();
+
         console.log(val);
         splat = val.split(' ');
-        
-        for (i = 0; i < splat.length; ++i) {
+
+        $(splat).each(function (item) {
+          mark = nob[item];
+          naughty = wob[item];
+          
+          if (mark && naughty) {
+            $('#msg').popover({
+                placement:'bottom',
+                title:'Is this nice?',
+                content:'Are you sure the message you just wrote,
+                , which looks like it is directed at someone,
+                are you sure this is a nice thing to say?'
+              });
+            return false;
+          }
+          });
+
+        /*for (i = 0; i < splat.length; ++i) {
           console.log('looping words written in box...');
           for (j = 0; j < names.length; ++j) {
             console.log('looping names...');
@@ -6029,7 +6056,8 @@
               naughty = true;
               break;
             }
-          }
+            }
+            */
         }
       }
   });
