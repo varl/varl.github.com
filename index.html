@@ -6006,12 +6006,6 @@
           }
         });
 
-  Array.prototype.uniqueAsObj = function() {
-    var o = {}, i, l = this.length, r = [];
-    for(i=0; i<l;i+=1) o[this[i]] = true;
-    return o;
-  };
-
   viva.after = function () {
         var val = $('#msg').val(),
             i,
@@ -6019,6 +6013,12 @@
             j,
             mark = false,
             naughty = false;
+
+        Array.prototype.uniqueAsObj = function() {
+          var o = {}, i, l = this.length, r = [];
+          for(i=0; i<l;i+=1) o[this[i]] = true;
+          return o;
+        };
 
         var nob = this.names.uniqueAsObj(),
             wob = this.badwords.uniqueAsObj();
