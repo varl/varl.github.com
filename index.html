@@ -6005,14 +6005,13 @@
             i,
             splat,
             j,
-            mark,
-            naughty;
+            mark = false,
+            naughty = false;
 
 
         Array.prototype.uniqueAsObj = function() {
           var o = {}, i, l = this.length, r = [];
           for(i=0; i<l;i+=1) o[this[i]] = true;
-          //for(i in o) r.push(o[i]);
           return o;
         };
 
