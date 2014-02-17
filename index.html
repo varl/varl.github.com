@@ -12,6 +12,7 @@
 
   </head>
   <body>
+    <div class="container">
     <h1>Cyber-bullying ...</h1>
     <p>
       ... Is something that has been on my mind lately.
@@ -21,9 +22,9 @@
       /v.
     </p>
                                                               
-    <form role="form">
+    <form role="form">      
       <div class="form-group">
-        <label for="msg">Status update</label>
+        <label for="msg">Status update (press Enter after typing)</label>
         <input type="text" id="msg" class="form-control"/>
       </div>
       <button type="submit" id="btn" class="btn btn-default">Post</button>
@@ -6003,6 +6004,7 @@
       .keypress(function (e) {
           if (e.which === 13) {
             e.preventDefault();
+            viva.after();
           }
         });
 
@@ -6064,14 +6066,8 @@
         }
   };
 
-  viva.timer;
-  $('#msg').keyup(function () {
-      viva.timer = setTimeout(viva.after, 3000);
-      });
-  $('#msg').keydown(function () {
-      clearTimeout(viva.timer);
-      });
 });
     </script>
+  </div>
   </body>
 </html>
