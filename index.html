@@ -25,9 +25,8 @@
     <form role="form">      
       <div class="form-group">
         <label for="msg">Status update (press Enter after typing)</label>
-        <input type="text" id="msg" class="form-control"/>
+        <input type="text" id="msg" class="form-control" value="Oh wow, and did you see what James was wearing last night did last night? He looked like a faggot!"/>
       </div>
-      <button type="submit" id="btn" class="btn btn-default">Post</button>
     </form>          
 
 
@@ -5995,11 +5994,6 @@
   'zabourah',
           ];
 
-  $('#btn').click(function(event) {
-        event.preventDefault();
-      });
-
-
   $('#msg')
       .keypress(function (e) {
           if (e.which === 13) {
@@ -6049,12 +6043,6 @@
             if (typeof wob[naught] !== "undefined") {
               naughty = wob[naught];
             }
-          
-          if (mark && naughty) {
-            return false;
-          } else {
-            return true;
-          } 
           });
 
         if (mark && naughty) {
